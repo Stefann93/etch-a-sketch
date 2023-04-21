@@ -1,0 +1,36 @@
+* {
+    font-family: 'Comic Neue', cursive;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding: 10px;
+    background-color: rgb(247, 58, 58);
+    margin: 2%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    font-size: 45px;
+    text-align: center;
+}
+
+.underHeader {
+    font-size: 20px;
+    text-align: center;
+}
+
+.drawingContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding:60px 100px;
+}
+
+.child {
+    border: 1px solid black;
+    aspect-ratio: 1;
+}
