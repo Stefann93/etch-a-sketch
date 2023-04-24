@@ -16,9 +16,15 @@
 
 <body>
     <div class="container">
-    <p class="header">Magic <span style="font-style: italic;">Etch a sketch</span>&reg; Screen</p>
-    <div class="drawingContainer" id="container">
-    </div>
+        <p class="header">Magic <span style="font-style: italic; cursor: pointer; text-decoration: underline;"
+                onclick="window.location.href='https://en.wikipedia.org/wiki/Etch_A_Sketch';">Etch a sketch</span>&reg;
+            Screen</p>
+        <div class="drawingContainer" id="container">
+        </div>
+        <div class="tools">
+            <input id="gridSize" type="range" min="1" max="100" value="16">
+            <p id="gridSizeVal">Grid size: 16 x 16</p>
+        </div>
     </div>
     <script src="java-script.js"></script>
 </body>
