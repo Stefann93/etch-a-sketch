@@ -2,7 +2,12 @@ const container = document.querySelector("#container");
 const gridSizeVal = document.querySelector("#gridSizeVal");
 const gridSize = document.querySelector("#gridSize");
 const gridLines = document.querySelector("#gridLines");
-let isPressed = false;
+const colorInput = document.querySelector("#color");
+const clearButton = document.querySelector("#clear");
+const eraserButton = document.querySelector("#eraser");
+let penColor = "#000000";
+let isMouseDown = false;
+let eraser = false;
 let squares;
 window.onload = createGrid();
 gridSize.addEventListener('input', createGrid);
@@ -29,22 +34,27 @@ function createGrid() {
             drawingSquare.setAttribute("id", "edge");
         }
         drawingSquare.classList.add("child");
+        if (gridLines.checked)
+            drawingSquare.classList.add("border");
         container.appendChild(drawingSquare);
     }
     squares = document.querySelectorAll(".child");
     squares.forEach(square => {
         square.addEventListener('mousedown', function () {
-            isPressed = true;
+            isMouseDown = true;
         })
         square.addEventListener('mouseup', function () {
-            isPressed = false;
+            isMouseDown = false;
         })
         square.addEventListener('mouseover', function () {
-            if (isPressed == true)
-                square.style.cssText = "background-color:black";
+            if (isMouseDown == true && eraser == false)
+                square.style.cssText = `background-color:${penColor}`;
+
+            else if (isMouseDown == true && eraser == true)
+                square.style.cssText = "background-color:white";
+
         })
     });
-    gridLines.checked = false;
 }
 gridLines.addEventListener("change", function () {
     if (this.checked) {
@@ -57,4 +67,24 @@ gridLines.addEventListener("change", function () {
             square.classList.remove("border");
         });
     }
+})
+colorInput.addEventListener("change", function () {
+    penColor = this.value;
+})
+clearButton.addEventListener("click", function () {
+    createGrid();
+    eraserButton.classList.remove("active");
+    erase = false;
+})
+eraserButton.addEventListener("click", function () {
+    if (eraser == false) {
+        eraser = true;
+        eraserButton.classList.add("active");
+
+    }
+    else if (eraser == true) {
+        eraser = false;
+        eraserButton.classList.remove("active");
+    }
+    isMouseDown = false;
 })

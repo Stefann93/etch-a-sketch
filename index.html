@@ -23,12 +23,21 @@
         </div>
         <div class="tools">
             <div class="gridSizeContainer">
-            <input id="gridSize" type="range" min="1" max="100" value="16">
+            <input id="gridSize" class="gridSize" type="range" min="1" max="100" value="16">
             <p id="gridSizeVal">Grid size: 16 x 16</p>
         </div>
             <div class="gridLinesContainer">
-            <input type="checkbox" id="gridLines">
+            <input type="checkbox" id="gridLines" class="gridLines">
             <p>Grid Lines</p>
+        </div>
+        <div class="ColorContainer">
+            <input type="color" id="color" class="color">
+            <p>Pen Color</p>
+        </div>
+        <div class="buttons">
+            <button class="button" id="eraser">Eraser</button>
+            <button class="button" id="clear">Clear</button>
+            <button class="button" id="reset" onclick="window.location.reload();">Reset</button>
         </div>
         </div>
     </div>
