@@ -32,11 +32,27 @@ body {
 }
 
 .child {
+    border: none;
+    background-color: white;
+}
+.border{
     border: 1px solid black;
 }
-
 .content {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tools{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    font-size: 20px;
+}
+.gridLinesContainer, .gridSizeContainer{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
