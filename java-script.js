@@ -61,7 +61,7 @@ function createGrid() {
             else if (isMouseDown == true && eraser == false && isRainbowOn == false)
                 square.style.cssText = `background-color:${penColor}`;
 
-            else if (isMouseDown == true && eraser == true && isRainbowOn == false)
+            else if (isMouseDown == true && eraser == true)
                 square.style.cssText = "background-color:white";
 
         })
