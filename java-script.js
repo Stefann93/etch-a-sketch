@@ -5,9 +5,13 @@ const gridLines = document.querySelector("#gridLines");
 const colorInput = document.querySelector("#color");
 const clearButton = document.querySelector("#clear");
 const eraserButton = document.querySelector("#eraser");
+const rainbowButton = document.querySelector("#rainbow");
 let penColor = "#000000";
 let isMouseDown = false;
+let isRainbowOn = false;
+let rainbowColors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#9400D3"];
 let eraser = false;
+let color = 0;
 let squares;
 window.onload = createGrid();
 gridSize.addEventListener('input', createGrid);
@@ -47,10 +51,17 @@ function createGrid() {
             isMouseDown = false;
         })
         square.addEventListener('mouseover', function () {
-            if (isMouseDown == true && eraser == false)
+            if (isMouseDown == true && eraser == false && isRainbowOn == true) {
+                square.style.cssText = `background-color:${rainbowColors[color]}`;
+                if (color >= rainbowColors.length - 1)
+                    color = 0;
+                else
+                    color++;
+            }
+            else if (isMouseDown == true && eraser == false && isRainbowOn == false)
                 square.style.cssText = `background-color:${penColor}`;
 
-            else if (isMouseDown == true && eraser == true)
+            else if (isMouseDown == true && eraser == true && isRainbowOn == false)
                 square.style.cssText = "background-color:white";
 
         })
@@ -85,6 +96,16 @@ eraserButton.addEventListener("click", function () {
     else if (eraser == true) {
         eraser = false;
         eraserButton.classList.remove("active");
+    }
+    isMouseDown = false;
+})
+rainbowButton.addEventListener("click", function () {
+    if (isRainbowOn == false) {
+        isRainbowOn = true;
+
+    }
+    else if (isRainbowOn == true) {
+        isRainbowOn = false;
     }
     isMouseDown = false;
 })
