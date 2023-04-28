@@ -102,10 +102,14 @@ eraserButton.addEventListener("click", function () {
 rainbowButton.addEventListener("click", function () {
     if (isRainbowOn == false) {
         isRainbowOn = true;
-
+        rainbowButton.classList.add("active");
+        rainbowButton.classList.remove("rainbow");
     }
     else if (isRainbowOn == true) {
         isRainbowOn = false;
+        rainbowButton.classList.remove("active");
+        rainbowButton.classList.add("rainbow");
+   
     }
     isMouseDown = false;
 })
