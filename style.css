@@ -88,8 +88,8 @@ body {
 
 .button {
     font-size: 20px;
-    width: 80px;
-    padding: 4px 0;
+    width: 140px;
+    padding: 5px 0;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -116,4 +116,19 @@ a{
     color:black;
     text-decoration: none;
     font-size: 20px;
+}
+.rainbow{
+    background: linear-gradient(to right, 
+    hsl(0, 80%, 70%), /* Red */
+    hsl(30, 80%, 70%), /* Orange */
+    hsl(60, 80%, 70%), /* Yellow */
+    hsl(120, 80%, 70%), /* Green */
+    hsl(240, 80%, 70%), /* Blue */
+    hsl(270, 80%, 70%), /* Indigo */
+    hsl(300, 80%, 70%) /* Violet */
+  );
+}
+.rainbow:hover{
+    color:black;
+    opacity: 0.7;
 }
